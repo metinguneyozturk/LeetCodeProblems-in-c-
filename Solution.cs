@@ -431,7 +431,45 @@ return ans;}
        return -1; 
     }
 
+    public int CountKDifference(int[] nums, int k) 
     
+    {
+        int ans=0;
+
+        for(int i=0; i<nums.Length; i++)
+        {
+            for(int x=i+1; x<nums.Length; x++)
+            {
+                if(Math.Abs(nums[i]-nums[x])==k)
+                {
+                    ans++;
+                }
+
+            }
+
+        }
+return ans;
+    }
+
+     public int MaxProfit(int[] prices) {
+        //works but slow
+        int maxProfit =0;
+        for(int i=0; i<prices.Length; i++)
+        {
+            for(int k=prices.Length-1; k>i; k--)
+            {
+                if(maxProfit>(prices[i]-prices[k]))
+                {
+                    maxProfit = (prices[i]-prices[k]);
+                }
+
+            }
+        }
+        
+    return Math.Abs(maxProfit);}
+
+
+
 
 }
 
