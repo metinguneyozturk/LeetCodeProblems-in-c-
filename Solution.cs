@@ -351,6 +351,73 @@ return ans;}
     }
     return ans;}
 
+        public int NumWaterBottles(int numBottles, int numExchange) {
+        int total = numBottles;
+        int empty = numBottles;
+
+        while(empty >= numExchange)
+        {
+            empty -= numExchange;
+            total++;
+            empty++; 
+        }
+
+        return total;
+    }
+
+
+     public int[] BuildArray(int[] nums) {
+        int[] ans = new int[nums.Length];
+
+        for(int i=0; i<nums.Length; i++)
+          {
+            ans[i]=nums[nums[i]];
+
+
+        }
+        
+   return ans; }
+
+    public int[] GetConcatenation(int[] nums) {
+     int[] ans = new int[nums.Length*2];
+     int i=0;
+     int k=0;
+     while(i<nums.Length*2)
+     {
+        ans[i]=nums[k];
+        i++;
+        if(k==nums.Length-1){
+            k=0;}
+        else if(k<nums.Length-1)
+        {
+            k++;
+        }
+     }
+     
+
+    return ans;}
+
+
+   
+
+
+   public bool IsThree(int n) {
+    int ans=0;
+    for(int i=n; i>0; i--)
+    {
+        if(n%i==0)
+        {
+            ans++;
+        }
+    }
+    return ans==3;
+        
+    }
+
+ 
+   public int FindMiddleIndex(int[] nums) {
+        
+    }  
 
 }
 
