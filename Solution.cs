@@ -415,9 +415,23 @@ return ans;}
     }
 
  
-   public int FindMiddleIndex(int[] nums) {
-        
-    }  
+  
+
+    public int FindGCD(int[] nums) {
+        int maxval = nums.Max();
+        int minval = nums.Min();
+        for(int i = maxval; i>0; i--)
+        {
+            if(maxval%i==0 && minval%i==0)
+            {
+                return i;
+            }
+
+        }
+       return -1; 
+    }
+
+    
 
 }
 
