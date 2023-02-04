@@ -469,8 +469,106 @@ return ans;
     return Math.Abs(maxProfit);}
 
 
+    
+
+    public int[] SearchRange(int[] nums, int target) {
+        int[] ans = new int[2]{-1,-1};
+        for(int i=0; i<nums.Length; i++)
+        {
+            if(nums[i]==target)
+            {
+                if(ans[0]==-1)
+                {
+                    ans[0]=i;
+                }
+                if(ans[1]==-1 && ans[0]!=i)
+                {
+                    ans[1]=i;
+                }
+               
+
+            }
+
+        }   
+         if(ans[0]!=-1 && ans[1]==-1)
+                {
+                    ans[1]=ans[0];
+                }
+return ans;
 
 
+
+    }
+   public int SearchInsert(int[] nums, int target) {
+
+            for(int i =0; i<nums.Length; i++)
+            {
+                if(nums[i]==target)
+                {
+                    return i;
+                }
+
+
+            }
+
+int k=0;
+    while(true)
+    {
+        if(nums[k]>target)
+        {
+            
+            return k;
+        break;
+        }
+        if(k==nums.Length-1)
+        {
+            return k+1;
+            break;
+        }
+
+    
+    k++;}
+
+   return k; }
+
+
+ public IList<IList<int>> CombinationSum(int[] candidates, int target) {
+        // Create a list to store the combinations
+        IList<IList<int>> combinations = new List<IList<int>>();
+
+        // Create a list to store the current combination
+        List<int> current = new List<int>();
+
+        // Recursively find the combinations
+        findCombinationsRecursive(candidates, target, 0, current, combinations);
+
+        return combinations;
+    }
+
+    void findCombinationsRecursive(int[] candidates, int target, int index, IList<int> current, IList<IList<int>> combinations)
+    {
+        // If the target is 0, we have found a combination
+        if (target == 0)
+        {
+            combinations.Add(current);
+            return;
+        }
+
+        // If the target is negative or we have reached the end of the array, return
+        if (target < 0 || index == candidates.Length)
+        {
+            return;
+        }
+
+        // Recursively find combinations with and without the current element
+        List<int> withCurrent = new List<int>(current);
+        withCurrent.Add(candidates[index]);
+        findCombinationsRecursive(candidates, target - candidates[index], index, withCurrent, combinations);
+        findCombinationsRecursive(candidates, target, index + 1, current, combinations);
+    }
+
+
+    
 }
 
 
